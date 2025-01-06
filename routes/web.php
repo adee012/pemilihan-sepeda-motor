@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DataKriteriaController;
 use App\Http\Controllers\DataMotorController;
 use App\Http\Controllers\KriteriaHargaController;
@@ -68,6 +69,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/update-kriteria-tahun/{id}', [KriteriaTahunController::class, 'edit'])->name('update-kriteria-tahun');
         Route::put('/update-kriteria-tahun', [KriteriaTahunController::class, 'update'])->name('update-kriteria-tahun');
         Route::delete('/delete-kriteria-tahun/{id}', [KriteriaTahunController::class, 'destroy'])->name('delete-kriteria-tahun');
+
+        // Customer
+        Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
     });
 
     Route::get('/datas-motor', [LandingController::class, 'dataMotor'])->name('datas-motor');
