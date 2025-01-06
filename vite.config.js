@@ -11,4 +11,11 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+      build: {
+    // Arahkan output build ke public_html
+    outDir: '../public_html/build',
+    // Pastikan assets dalam folder build
+    assetsDir: 'assets'
+  },
+  base: '/build/'
 });
