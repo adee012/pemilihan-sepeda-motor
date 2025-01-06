@@ -72,6 +72,7 @@ Route::middleware('auth')->group(function () {
 
         // Customer
         Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
+        Route::delete('/delete-customer/{id}', [CustomerController::class, 'destroy'])->name('delete-customer');
     });
 
     Route::get('/datas-motor', [LandingController::class, 'dataMotor'])->name('datas-motor');

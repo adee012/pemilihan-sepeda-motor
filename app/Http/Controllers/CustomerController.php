@@ -13,4 +13,13 @@ class CustomerController extends Controller
 
         return view('admin.customer.index', compact('customer'));
     }
+
+    public function destroy(string $id)
+    {
+        $customer = User::where('id', $id)->first();
+
+        $customer->delete();
+
+        return back()->with('success', 'Data Customer Berhasil Dihapus');
+    }
 }

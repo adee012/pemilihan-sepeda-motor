@@ -37,6 +37,7 @@
                                     <th class="px-4 py-2">Username</th>
                                     <th class="px-4 py-2">Email</th>
                                     <th class="px-4 py-2">No Hp</th>
+                                    <th class="px-4 py-2">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,6 +48,17 @@
                                         <td class="border px-4 py-2">{{ $cust->username }}</td>
                                         <td class="border px-4 py-2">{{ $cust->email }}</td>
                                         <td class="border px-4 py-2">{{ $cust->no_tlp }}</td>
+                                        <td class="border px-4 py-2">
+                                            <a href="#"
+                                                onclick="event.preventDefault(); if (confirm('Apakah Anda Yakin Ingin Menghapus Data Customer ?')) { document.getElementById('delete-form-{{ $cust->id }}').submit(); }"
+                                                class="text-red-600">Delete</a>
+                                            <form id="delete-form-{{ $cust->id }}"
+                                                action="{{ route('delete-customer', $cust->id) }}" method="POST"
+                                                style="display: none;">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
+                                        </td>
                                     </tr>
 
                                 @empty
